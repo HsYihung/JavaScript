@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超連結元素</title>
+    <style>
+        
+        /* class加上空白寫法 */
+        /* .list a:link{
+            color :#0080FF;
+            text-decoration: none;
+        }
+        .list a:visited{
+            color:#00CACA;
+        }
+        .list a:hover{
+            color : #007979;            
+            text-decoration:underline;
+        }
+        .list a:active{
+            color : red;
+            font-size: 2em;
+        } */
+
+        /* 另一種寫法 指定為class"list"的下一個元素>li>a */
+
+        .list>li>a:link{
+            color :#0080FF;
+            text-decoration: none;
+        }
+        .list>li>a:visited{
+            color:#00CACA;
+        }
+        .list>li>a:hover{
+            color : #007979;            
+            text-decoration:underline;
+        }
+        .list>li>a:active{
+            color : red;
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://www.ispan.com.tw">資展國際</a>
+    <a href="first.html">First</a>
+    <a href="list.html">List</a>
+    <a href="#book1">bookmark</a>
+    <a href="mailto:cy3l@gmail.com">mail to me</a>
+    <!-- inline元素 -->
+    <ul class="list">
+        <li>
+            <a href="">首頁</a>
+        </li>
+        <li>
+            <a href="">新聞</a>
+        </li>
+        <li>
+            <a href="">汽車</a>
+        </li>
+        <li>
+            <a href="">娛樂</a>
+        </li>
+    </ul>
+
+    <h2>台灣藍鵲</h2>
+    <figure style="background-color: gray;">
+        <img src="images/下載.jpg" alt="台灣藍鵲" title="台灣藍鵲" width="300">
+        <a href="https://zh.m.wikipedia.org/zh-tw/%E5%8F%B0%E7%81%A3%E8%97%8D%E9%B5%B2">
+            <img src="images/下載.jpg" alt="台灣藍鵲" title="圖片超連結" width="300">
+        </a>
+        <figcaption>台灣藍鵲</figcaption>
+    </figure>
+    <dl>
+        <dt>學名:</dt>
+        <dd>Urocissa caerulea</dd>
+        <dt>俗名:</dt>
+        <dd>
+            <ul>
+                <li id="book1" style="background-color: yellow;">台灣暗藍鵲</li>
+                <li>紅嘴山鵲</li>
+                <li>長尾山娘</li>
+            </ul>
+        </dd>
+        <dt>分類:</dt>
+        <dd>雀形目</dd>
+        <dd>鴉科</dd>
+        <dt>分布:</dt>
+        <dd>主要分布在中低海拔闊葉林裡</dd>
+    </dl>
+    <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+    <a href="#book1">bookmark</a>
+</body>
+
+</html>

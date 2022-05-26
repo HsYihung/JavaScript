@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格元素與樣式</title>
+    <style>
+        .td1 {
+            width: 400px;
+            border: 3px solid #6a61eb;
+            /* border-collapse: collapse; */
+            border-radius: 20px;
+            border-spacing: 0ch;
+        }
+
+        td,
+        th {
+            border: 1px solid gray;
+        }
+        thead{
+            background-color: #005AB5;
+            color: white;
+            text-transform: capitalize;
+        }
+        tbody{
+            background-color: #70abe7;            
+            text-align: center;
+            font-size: 14px;
+            font-family: 微軟正黑體;
+        }
+        tbody tr:nth-child(2n){               
+            /* :link , :nth-child 偽元素 */
+            /* 偶數列        */
+            background-color: #6a61eb;
+        }
+        tbody tr:nth-child(2n+1){
+            /* 基數列 */
+            background-color: aqua;
+        }
+        tbody tr:hover{
+            background-color: #005AB5;
+        }
+        tbody td:hover{
+            color: red;
+            font-size: 20px;
+            text-decoration-line: underline;
+        }
+        tr:first-child th:first-child{
+            border-top-left-radius: 17px;
+        }
+        tr:first-child th:last-child{
+            border-top-right-radius: 17px;
+        }
+        tr:last-child td:first-child{
+            border-bottom-left-radius: 17px;
+        }
+        tr:last-child td:last-child{
+            border-bottom-right-radius: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="td1">
+        <thead>
+            <caption><h2>表格練習</h2></caption>
+            <tr>
+                <th>colum1</th>
+                <th>colum2</th>
+                <th>colum3</th>
+                <th>colum4</th>
+            </tr>
+            <tr>
+                <th colspan="2">colum1 colum2</th>
+                <!-- <th>colum2</th> -->
+                <th colspan="2">colum3 colum4</th>
+                <!-- <th>colum4</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3">1</td>
+                <td colspan="3">2</td>
+                <!-- <td>3</td> -->
+                <!-- <td>4</td> -->
+            </tr>
+            <tr>
+                <!-- <td>1</td> -->
+                <td rowspan="2" colspan="2">2</td>
+                <!-- <td>3</td> -->
+                <td>4</td>
+            </tr>
+            <tr>
+                <!-- <td>1</td> -->
+                <!-- <td>2</td> -->
+                <!-- <td>3</td> -->
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
