@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>事件處理</title>
+    <style>
+        .main-box {
+            margin: 50px auto;
+            width: 500px;
+            height: 200px;
+            padding: 50px;
+            box-shadow: 5px 5px 10px #999;
+            border: 1px solid #fff;
+            text-align: center;
+            font-size: 1.3em;
+        }
+    </style>
+    <script>
+        
+        function f1() {
+            var sex = document.getElementById("sex").value;
+            let message = '';
+            if (sex) {
+                if (sex == '男') {
+                    message = '先生你好'
+                }
+                else if (sex == '女') {
+                    message = '女士你好'
+                }
+            }
+            else {
+                message = '';
+            }
+            document.getElementById("message").value = message;
+        }
+        function f2() {
+            let l1 = Number(document.getElementById("n1").value);
+            let l2 = Number(document.getElementById("n2").value);
+            if ( l1 > l2) {
+                let tmp = l1;
+                l1 = l2;
+                l2 = tmp;
+            }
+            let total = 0;
+            for (let i = l1; i <= l2; i++) {
+                total += i;
+            }
+            total = 0;
+            let i = l1;
+            while (i <= l2) {                
+                total += i;
+                i++;
+            }
+            total = 0;
+            i = l1;
+            do
+                total += i++;
+            while (i <= l2);
+            document.getElementById("n3").value = total;
+        }
+    </script>
+</head>
+<body>
+    <div class="main-box">
+        <div>
+            <input type="text" id="n1" oninput="f1()" size="3" value="1" />~
+            <input type="text" id="n2" oninput="f1()" size="3" value="10" />
+            <button onclick="f2()">累加值為</button>
+            <input type="text" id="n3" disabled size="20" />
+        </div>
+        <hr />
+        <div>
+            <label>請輸入你的性別
+            <input type="text" id="sex" oninput="f1()" size="3" />
+            <input type="text" id="message" disabled size="20" />
+            </label>
+        </div>
+        <hr />
+        <div id="div3">
+            <h3>簡易四則計算器</h3>
+            <input type="text" size="10" id="number1" value="20" />
+            <input type="text" id="op" value="+" style="width:40px; text-align:center;" list="oplist" />
+            <datalist id="oplist">
+                <option value="+"></option>
+                <option value="-"></option>
+                <option value="*"></option>
+                <option value="/"></option>
+            </datalist>
+            <input type="text" size="10" id="number2" value="10" />
+            <button onclick="calculate()">=</button>
+            <!--事件發生=>呼叫function-->
+            <input type="text" size="10" id="result" />
+        </div>
+    </div>
+    <script>
+        let num1 = 0;
+    </script>
+    <script>
+        var vv1 = 100
+        var vv2 = 120
+        var vv3 = ("px" + vv1 - vv2 +"px"); //NaNpx
+        console.log(vv3);
+        num1 = 2;
+        console.log(num1)
+        /*<script type="text/javascript">type屬性可省略*/
+        var v1, v2;
+        console.log(v1);
+        console.log(v2);
+        //未賦值變數初始值為undefined
+        var v1 = 10;
+        console.log(v1);//10
+        var v1;
+        console.log(v1);//10
+        var v1 = 100;
+        console.log(v1);//100
+        //此處宣告var變數為全域變數
+        let l1;
+        //let v1;
+        //console.log(v1); 錯誤 重複宣告為不同類型的變數
+        //此處宣告let變數為區域變數
+        switch (v1) {
+            case 100:
+                console.log("aaa");
+            case 200:
+                console.log("bbb");
+                break;
+            default:
+                console.log("ccc");
+        }
+        /*沒寫break 繼續執行符合case後程式直到break **print aaa bbb*/
+        //執行結果可按F2查看console 執行結果
+
+
+        function calculate() /*定義function*/ {
+            var s1 = window.document.getElementById('number1').value;
+            /*window內(可省略)document(網頁文件)內getElementById(網頁物件id)方法.value屬性(內容字串)*/
+            var s2 = document.getElementById('number2').value;
+            var op = document.getElementById('op').value;
+            var n1 = parseInt(s1);
+            var n2 = Number(s2);
+            var n3; /*方法內宣告var變數為local variable區域變數*/
+            //n3 = s1 + s2;未轉型 結果為字串相加(javaScript執行不報錯--弱型別)
+            switch (op) {
+                case '+':
+                    //js字串可使用''或""
+                    n3 = n1 + n2;
+                    //document.writeln(n3);放在事件內會洗掉頁面重新渲染
+                    //n3 = n1 + s2 10+20=1020
+                    //其一是字串結果為字串串連
+                    break;
+                case '-':
+                    n3 = s1 - s2;
+                    //自動轉型為數字運算,結果為數字
+                    break;
+                case '*':
+                case 'x':
+                case 'X':
+                    n3 = s1 * s2;
+                    //自動轉型為數字運算,結果為數字
+                    break;
+
+                case '/':
+                    n3 = s1 / s2;
+                    //自動轉型為數字運算,結果為數字
+                    break;
+                default:
+                    n3 = '運算符號無效!';
+                    document.getElementById('op').value = '';
+                    break;
+            }
+            document.getElementById('result').value = n3;
+            //自動轉型字串
+        }
+        /*Function結束返回呼叫者caller*/
+
+    </script>
+</body>
+</html>
+
