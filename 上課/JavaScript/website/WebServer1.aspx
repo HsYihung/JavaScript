@@ -21,6 +21,7 @@
 </head>
 <body>
     <div class="main-box">歡迎<%= Request["username"] %> 光臨</div>
+
 </body>
 </html>
 

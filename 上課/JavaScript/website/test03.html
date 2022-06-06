@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        let a1 = [1, 2, 3];
+        console.log(a1);//Array(3)i
+                        //0: 1
+                        //1: 2
+                        //2: 3
+                        //length: 3
+                        //[prototype]: Array(0)
+        console.log(a1.toString());//1,2,3
+        console.log(JSON.stringify(a1));//[1,2,3]//JSON陣列格式字串
+        //a1.forEach( (value,index) => { } )   a1.forEach( function (value , index){ } )
+        a1.push(4, 5);
+        console.log(a1.pop());
+        console.log(`a1 = ${a1}`);//自動toString (5被取出)
+        console.log(a1.join("--"));//類似toString 可自訂元素分隔符號
+        console.log(a1.join());//不指定分隔字串預設以','分隔
+        a1.splice(1, 1, 77, 88, 99)//索引值為1元素開始刪除1個元素並從1開始插入(77,88,99)
+        console.log(a1.toString());
+        let div1;
+        let ta1;
+        function myEvent(e) { div1.innerHTML += `<div>${e.type}</div>` }
+        function init() {
+            let ta2 = document.getElementById('ta2');
+            let eh = function (e) {
+                let div2 = document.getElementById('div2')
+                div2.innerHTML += `<div>${e.type} code=${e.code} key=${e.key}`
+            }
+            ta2.addEventListener('keydown', eh)
+            ta2.addEventListener('keypress', eh)
+            ta2.addEventListener('keyup', eh)
+            let c = document.getElementById('clock');
+            displayCurrentTime(c);
+            setInterval(() => displayCurrentTime(c), 1000);//第一次啟動為一秒後 , 啟動後每秒鐘啟動一次------1000(ms)
+        }
+        function displayCurrentTime(c) {
+            function pad(n) {
+                return n.toString().padStart(2, '0');
+                //return n.toString().Slice(-2)從字串指定開始位置取值,負號為從後開始算;
+            }
+            let now = new Date();
+            let nowStr = `${now.getFullYear()}/${pad(now.getMonth() + 1)}/${pad(now.getDate())
+                } ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+            c.innerHTML = nowStr;            
+            /*setTimeout(() => displayCurrentTime(c), 1000);*///非同步方法  一秒後啟動一次
+        }
+        window.onload = init;
+    </script>
+</head>
+<!--<body onload="init()">-->
+<body>
+    <div id="clock" style="color:blue; font-size : 20px; text-align:center;"></div>
+    <h1>Hello world2</h1>
+    <div>
+        <textarea onmouseover="myEvent(event)"
+                  onmouseout="myEvent(event)"
+                  onclick="myEvent(event)"
+                  cols="30" rows="10"></textarea>
+        <div id="div1"></div>
+        <textarea id="ta2" cols="30" rows="10"></textarea>
+        <div id="div2"></div>
+    </div>
+    <script>
+
+        div1 = document.getElementById('div1');
+    </script>
+</body>
+</html>

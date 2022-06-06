@@ -42,6 +42,31 @@
                         greeting("歡迎光臨...");
                         greeting("Welcome to JavaScript...");
                         document.write(`${s}`);
+
+                        //
+                        function test1(t1) {
+                            let l1 = 10;
+                            console.log(`T1 : ${t1(l1)}`);
+                        }
+                        function test2(t2) {
+                            t2 *= 2;
+                            console.log(t2);
+                            return ("t3:" + t2);
+                        }
+                        function test3(t3) {
+                            t3 /= 2;
+                            console.log(t3);
+                            return ("t3:"+t3);
+                        }
+                        function test4(t4) {
+                            t4 *= t4;
+                            return t4;
+                        }
+                        test1(test2);                        
+                        test1(test3);
+
+                        //
+
                     </script>
                 </h3>
             </div>

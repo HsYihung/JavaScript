@@ -16,10 +16,132 @@
 <body>
     <h1 id="h1-1">Hello world</h1>
     <script>
+        function f3a(n1) {
+            return n1 ** 2;//次方
+        }
+        let f3b = function (n1) {
+            return n1 ** 2;
+        }
+        let f3c = n1 => n1 ** 2;
+        console.log(f3a(f3b(f3c(2))));
+        console.log(f3a(f3b((n1 => n1 ** 2)(2))));
+
+
+        function f3(l1) {
+            function getTotal(n1, n2, cb) {
+                if (n1 > n2) {
+                    let tmp = n1;
+                    n1 = n2;
+                    n2 = tmp;
+                }
+                let total = 0;
+                for (let i = n1; i <= n2; i++) {
+                    total += i;
+                }
+                console.log(cb(total) * 2);
+            }
+            
+            this.myGetTotal = getTotal;
+            console.log(l1);
+            getTotal(
+                1,
+                10,
+                tot => { console.log(tot); return tot; }               
+            );
+
+            console.log(l1);
+            this.name = l1;            
+        }
+        let ff3 = new f3('f3');
+        f3('NoF3');
+        console.log("ff3");
+        ff3.myGetTotal(1, 10, tot => tot);
+        console.log(ff3.name);//f3
+        ff3.type = 'YA';//ff3動態新增屬性
+        console.log(ff3.l1);//undefined
+        console.log(ff3.type);
+        console.log("ff3");
+        ff4 = new f3('f4');
+        console.log(ff4.name);
+        ff4.type = function () { console.log('EEE') }
+        console.log(ff3.type);
+        ff4.type();
+        //function t1(l1) {
+        //    l1++;
+        //    return l1;
+        //}
+        //function t2(l1) {
+        //    l1--;
+        //    return l1;
+        //}
+        function t3(n1, n2) {
+            if (n2 > n1) {
+                return (n1 <= n2);
+            } else {
+                return (n2 < n1);
+            }
+        }
+                 
+        function ff(p1) {
+            let l2 = 10;
+            let l3 = 1
+            for (let l1 = 0;p1(l1,l2); l1+=l3) {
+                console.log("1");
+                if (l1 == l2-1) {                    
+                    l2 = 0;
+                    l3 = -1;
+                }
+            }
+        }
+        ff(t3);
+        let e = {
+            empoyleeid: "a001",
+            firstname: "nacy",
+            birthdaty: new Date(2022, 5, 8),
+            sing: function () { alert(`${this.empoyleeid},${this.birthdaty}`); }
+        };
+        //e.sing();
+        console.log(JSON.stringify(e));
+        let strJSON = JSON.stringify(e);
+        let obj = JSON.parse(strJSON);
+        /*alert(obj.firstname); */
+            let a1 = new Array(10, 15, 20);
+            
+        let tot = 0;
+        console.log('forArray');
+        //迭代(遍歷)陣列 iterate over the array
+        console.log('for');
+        for (let i = 0; i < a1.length; i++) {
+            tot += a1[i];
+        }
+        console.log(tot);
+        
+        tot = 0;
+        console.log('for in')
+        for (idx in a1) {
+            tot += a1[idx];
+        }        
+        console.log(tot);
+        tot = 0;
+        console.log('for of')
+        for (value of a1) {
+            tot += value;
+        }
+        console.log(tot);
+        tot = 0
+        let nowindex;
+            console.log('forEach')
+        a1.forEach(function (el, index) { tot += el; if (el === 15) { nowindex = index } });//el陣列內元素 index陣列索引直(可省略)
+            console.log(tot + ' ' + nowindex);
+            
         v1 = document.getElementById('h1-1')
         console.log(v1.innerHTML)
         document.getElementById('h1-1').innerHTML = 'Hi world'
-        console.log(v1.innerHTML)        
+        console.log(v1.innerHTML)
+
+        console.log(a1);
+        console.log(a1.toString);
+            
     </script>
 </body>
 </html>

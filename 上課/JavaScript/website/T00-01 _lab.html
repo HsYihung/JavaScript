@@ -16,7 +16,7 @@
         }
     </style>
     <script>
-        
+        (function (message) { console.log(message); })('Hello world');
         function f1() {
             var sex = document.getElementById("sex").value;
             let message = '';
@@ -58,10 +58,68 @@
             while (i <= l2);
             document.getElementById("n3").value = total;
         }
+
+        function f3() {
+            function getTotal(n1, n2, cb) {
+                if (n1 > n2) {
+                    let tmp = n1;
+                    n1 = n2;
+                    n2 = tmp;
+                }
+                let total = 0;
+                for (let i = n1; i <= n2; i++) {
+                    total += i;
+                }
+                console.log(cb(total)*2);
+            }
+            this.myGetTotal = getTotal;
+            getTotal(
+                Number(document.getElementById("num1").value),
+                Number(document.getElementById("num2").value),
+                /*function (total) { document.getElementById("num3").value = total; }*/
+                tot => { document.getElementById("num3").value = tot; return tot; }
+                /*tot => { document.getElementById("num3").value = tot*/
+                //只有一個參數()可省略,body內只有一行{}可省略,但不可有分號
+            );
+        }
+        let ff3 = new f3();
+        console.log("");
+        ff3.myGetTotal(1, 10, tot => tot);
+        console.log("");
+        function test1(f1) {
+            f1();
+        }
+        function test2() {
+            console.log("t2")
+        }
+        function test3() {
+            console.log("t3")
+        }
+        test1(test2);
+        test1(test3);        
+        function init() {
+            let btn1 = document.getElementById("btn1");
+            btn1.onclick = function () {
+                f3();
+                console.log('^onclick');
+            };
+            /*使用api*/ 數
+            btn1.addEventListener("click", function () { f3(); console.log('^addEventListener') })//addEventListener(type(事件名稱)),事件處理器)
+        }        
     </script>
 </head>
-<body>
+<body onload="init()"><!--建立onload事件處理器發生時間為網頁讀取完-->
     <div class="main-box">
+        
+        <div>
+            <input type="text" id="num1" oninput="f1()" size="3" value="1" />~
+            <input type="text" id="num2" oninput="f1()" size="3" value="10" />
+            <!--<button onclick="f3()">累加值為</button>-->
+            <!--使用onclick事件處理器屬性-->
+            <button id="btn1">累加值為</button>
+            <input type="text" id="num3" disabled size="20" />
+        </div>
+        <hr />
         <div>
             <input type="text" id="n1" oninput="f1()" size="3" value="1" />~
             <input type="text" id="n2" oninput="f1()" size="3" value="10" />
@@ -70,9 +128,10 @@
         </div>
         <hr />
         <div>
-            <label>請輸入你的性別
-            <input type="text" id="sex" oninput="f1()" size="3" />
-            <input type="text" id="message" disabled size="20" />
+            <label>
+                請輸入你的性別
+                <input type="text" id="sex" oninput="f1()" size="3" />
+                <input type="text" id="message" disabled size="20" />
             </label>
         </div>
         <hr />
@@ -96,6 +155,7 @@
         let num1 = 0;
     </script>
     <script>
+        
         var vv1 = 100
         var vv2 = 120
         var vv3 = ("px" + vv1 - vv2 +"px"); //NaNpx
@@ -130,7 +190,7 @@
         /*沒寫break 繼續執行符合case後程式直到break **print aaa bbb*/
         //執行結果可按F2查看console 執行結果
 
-
+        
         function calculate() /*定義function*/ {
             var s1 = window.document.getElementById('number1').value;
             /*window內(可省略)document(網頁文件)內getElementById(網頁物件id)方法.value屬性(內容字串)*/

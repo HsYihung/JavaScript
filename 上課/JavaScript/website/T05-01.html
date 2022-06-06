@@ -53,8 +53,16 @@
                 <div class="message-pane" id="div1"></div>
                 <script>
                     var div1 = document.getElementById('div1');
+                    let n1 = 0;
                     function myEventHandler(e) {
-                        div1.innerHTML += `${e.type}...<br/>`;
+                        if (n1 < 10) {
+                            div1.innerHTML += `${e.type}...<br/>`;
+                            n1 += 1;
+                        }
+                        else {
+                            n1 = 0;
+                            div1.innerHTML = `${e.type}...<br/>`;
+                        }
                     }
                 </script>
             </div>
