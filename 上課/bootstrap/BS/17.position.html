@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 800px;
+            height: 500px;
+            background-color: #ccc;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #afa;
+            border: 1px solid red;
+            /* position: relative; */
+            /*占用原本的位置只有畫面上移動*/
+            /* left: 300px;
+            top: 300px */
+            position: absolute;
+            /* 不占寬高 */
+            /* 參考第一個非static的上層元素 */
+            top: 5%;
+            left: 5%;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: #ffa;
+            /* position: relative; */
+        }
+
+        .wrap2 {
+            width: 600px;
+            height: 600px;
+            background-color: #aaf;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="wrap">
+        <div class="wrap2">
+            <div class="box1"></div>
+            <div class="box2"></div>
+        </div>
+    </div> -->
+    <div class="wrap2">
+        <div class="box1">
+            <div class="box1">
+                <div class="box1"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
