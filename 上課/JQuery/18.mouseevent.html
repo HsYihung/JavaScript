@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <input type="checkbox">
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+
+        $('.box').click(() => {
+            console.log('box clicked.');
+
+        });
+        $('.box').dblclick(() => {
+            console.log('box dblclicked.');
+
+        });
+        $('.box').mousedown(() => {
+            console.log('box mousedown.');
+
+        });
+        $('.box').mouseup(() => {
+            console.log('box mouseup.');
+
+        });
+        $('.box').mouseenter(() => {
+            console.log('box mouseenter.');
+
+        });
+        $('.box').mouseleave(() => {
+            console.log('box mouseleave.');
+
+        });
+        $('.box').hover(() => {
+            console.log('box hoverenter.');
+
+        }, () => {
+            console.log('box hoverleave.');
+
+        });
+        $('input').click(function () {
+            console.log('checkbox clicked.')
+        })
+
+    </script>
+</body>
+
+</html>

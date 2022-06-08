@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <span class="box">box2</span>
+            <div class="col">col1
+                <div class="col">col1-1
+                    <span class="col-children">0112</span>
+                </div>
+            </div>
+            <div class="col">col2</div>
+            <div class="col">col3</div>
+            <span class="box">box1</span>
+            <div class="col">col4</div>
+            <span class="box">box2
+                <span class="col-children">123</span>
+            </span>
+            <div class="col">col5</div>
+            <span class="box">box3</span>
+            <div class="col">col6</div>
+        </div>
+        <div class="row">
+            <div class="col">col1</div>
+            <div class="col">col2</div>
+            <div class="col">col3
+                <span class="col-children">123</span>
+            </div>
+            <div class="col">col4</div>
+            <div class="col">col5</div>
+            <div class="col">col6</div>
+        </div>
+        <div class="row">
+            <div class="col">col1
+                <div class="col">col1-1</div>
+            </div>
+            <span class="box">box3</span>
+            <span class="box">box3</span>
+            <span class="box">box3</span>
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $('.col-children').parent().next().css('background', 'red');
+        $('.col-children').parent().nextAll().css('background', '#ffa');
+        $('.col-children').parent().nextUntil('.box').css('background', '#c1f0e9')
+    </script>
+</body>
+
+</html>
