@@ -14,6 +14,7 @@
             height: 400px;
             position: relative;
             overflow: hidden;
+
         }
 
         ul.train {
@@ -22,6 +23,7 @@
             height: 100%;
             list-style: none;
             padding: 0;
+            transition: 0.5s;
         }
 
         .train li {
@@ -62,7 +64,7 @@
             <li><img src="./imgs/slide5.jpg" alt=""></li>
         </ul>
 
-        <ul class="slider-dots lits-unstyled">
+        <ul class="slider-dots list-unstyled">
             <li></li>
             <li></li>
             <li></li>
@@ -74,8 +76,8 @@
     <script>
         $('.slider-dots li').hover(function () {
             $(this).css('background', '#fff')
-        }, function () {
-            $(this).css('background', '')
+            $(this).siblings().css('background', '');
+            $('.train').css('transform', `translateX(${$(this).index() * -100 / $('.slider-dots li').length}%)`);
         })
     </script>
 </body>

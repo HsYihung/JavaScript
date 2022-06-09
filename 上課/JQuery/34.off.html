@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btnHi">HI</button>
+    <button id="btnOn">Off</button>
+
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        // $(`#btnHi`).click(function () {
+        //     console.log('hi')
+        // })
+        const sayHi = function () {
+            console.log('hi')
+        }
+        $('#btnOn').click(function () {
+
+            if ($(this).text() == 'Off') {
+                $(`#btnHi`).on('click', sayHi)
+                $(this).text("On");
+            }
+            else {
+                $(`#btnHi`).off('click', sayHi
+                )
+                $(this).text('Off');
+            }
+
+        })
+    </script>
+</body>
+
+</html>
