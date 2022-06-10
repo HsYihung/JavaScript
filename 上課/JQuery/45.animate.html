@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: #faf;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>bounce</button>
+    <div class="box animate__animated "></div>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        $('button').click(
+            function () {
+                $('.box').toggleClass('animate__tada').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                    $('.box').toggleClass('animate__tada');
+                })
+            }
+        )
+
+    </script>
+</body>
+
+</html>

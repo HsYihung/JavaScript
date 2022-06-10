@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #faf;
+            transition: .5s;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Click</button>
+    <div class="box"></div>
+
+
+
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+        //css取值
+        // console.log('width', $('.box').css('width'))
+        // console.log('background-color', $('.box').css('background-color'))
+        // console.log('background', $('.box').css('background'))
+
+        const styleList = {
+            styleDefault: {
+                width: '',
+                'background-color': ''
+            },
+            style1: {
+                width: '500px',
+                'background-color': 'blue'
+            }
+        }
+        styleList.style2 = {
+            width: '600px',
+            'background-color': 'red'
+        }
+
+
+
+        $('button').click(function () {
+            // if ($('.box').css('background-color') == 'rgb(255, 170, 255)') {
+            //     // $('.box').css('background-color', 'blue').css('width', '500px')
+
+            //     // var style = {
+            //     //     width: '500px',
+            //     //     'background-color': 'blue',
+            //     // };
+            //     // $('.box').css(style)
+            //     $('.box').css(styleList.style2)
+
+            //     for (let i = 1; i <= 3; i++) {
+            //         console.log('my loop', styleList['style' + i])
+            //     }
+
+            // }
+            // else {
+            //     // $('.box').css('background-color', '#faf').css('width', '')
+
+            //     // $('.box').css({
+            //     //     width: '',
+            //     //     'background-color': '#faf',
+            //     // })
+
+            //     $('.box').css(styleList.styleDefault);
+            // }
+            $('.box').css('width', '+=100');
+        })
+
+    </script>
+</body>
+
+</html>
