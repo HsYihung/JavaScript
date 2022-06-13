@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <h1>Hello world</h1>
+    <button>發送Ajax請求</button>
+    <div id="div1"></div>
+    <div id="div2">
+        <form id="form1">
+            <input type="text" name="username" />
+            <input type="password" name="password" />
+            <input type="submit" />
+        </form>
+    </div>
+    <button>get emp.json</button>
+    <div id="div3">
+        <ol>
+
+        </ol>
+    </div>
+    <button>Promise in AJAX</button>
+
+    <script src="javascripts/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $('button').eq(0).click(function () {
+            //$.ajax({
+            //    async: true, // false關閉非同步
+            //    method: 'get',
+            //    url: '_AjaxServer03.aspx',
+            //    data: { username: '采臣' },
+            //    success: function (data) {
+            //        /*alert(data);*/
+            //        $('#div1').html(data);
+            //        // setTimeout(() =>
+            //        //     $('#div1').html('')
+            //        //     , 3000);
+            //    },
+            //    error: function (jqXHR, textStatus, errorThrown) {
+            //        alert(`${jqXHR.status}--${textStatus}--${errorThrown}`)
+
+            //    }
+            //});
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('get', 'data/emp.json', true);
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        $('#div1').css('color', 'blue').text(xhr.responseText);
+                    }
+                    else {
+                        $('#div1').css("color", "red").text(xhr.statusText);
+                    }
+                }
+            };
+            xhr.send(null);
+
+            /*$('#div2').text('1122');*/
+        });
+        $('#form1').submit(function (e) {
+            e.preventDefault();
+            let xhr = new XMLHttpRequest();
+            xhr.open('post', '_AjaxServer01.aspx')
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    if (xhr.responseText == 'pass') {
+                        $('#div1').text('認證成功')
+                    }
+                    else if (xhr.responseText == 'fail') {
+                        $('#div1').text('認證失敗')
+                    }
+                }
+                else {
+                    $('#div1').text(xtr.status);
+                }
+            }
+            xhr.setRequestHeader("Content-Type",
+                "application/x-www-form-urlencoded;charset=UTF-8");
+            xhr.send($(this).serialize())
+            // xhr.send('username=%E5%B0%8F%E5%80%A9&password=%E9%87%87%E8%87%A3')
+        }
+        );
+        $('button').eq(1).click(
+            function () {
+                let xhr = new XMLHttpRequest();
+                xhr.open('get', 'data/Emp.json', true);
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
+                        let array = JSON.parse(xhr.responseText);
+                        $.each(array, function (index, el) {
+                            $('#div3').children().append(
+                                `<li>${el.EmpId} ${el.Name} ${el.Age}</li>`
+                            )
+                        })
+
+                    } else {
+                        $('#div1').text(xhr.statusText);
+                    }
+                }
+                xhr.send(null);
+            }
+        );
+        $('button').eq(2).click(
+            () => {
+                new Promise(function (resolve, reject) {
+                    $.ajax(
+                        {
+                            method: 'get',
+                            url: '_AjaxServer03eee.aspx',
+                            data: { username: 'QOO' },
+                            success: function (data) {
+                                resolve(data);
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                reject( jqXHR.status + '--' + textStatus + '--' + errorThrown);
+                            }
+                        }
+                    )
+                })
+                    .then(function (data) {
+                        alert(data)
+                    }, function (errReason) {
+                        alert(errReason)
+                    });
+            }
+        )
+    </script>
+</body>
+
+</html>
